@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { StubNavbar } from "../components/specific/StubNavbar";
-
+import { FilePicker } from "../components/FilePicker";
 // import { Valid } from "../components/Validation";
 // import { List, ListItem } from "../components/List";
 import { MainGrid, SideCol, ContentCol } from "../components/LayoutA";
@@ -13,19 +13,6 @@ import { useRef, useState } from "react";
 // import styles from '../styles/Home.module.css'
 import * as tf from "@tensorflow/tfjs";
 
-const FileDialog = ({ fileCallback }: any): any => {
-  const myfileRef = useRef();
-  const handleFileChange = (e: Event): void => {
-    const mytarget: HTMLInputElement = e.target as HTMLInputElement;
-    console.log(mytarget.files);
-    fileCallback(mytarget.files[0]);
-  };
-  return (
-    <>
-      <input type="file" ref={myfileRef} onChange={handleFileChange} />
-    </>
-  );
-};
 
 export default function Playground(): any {
   const [myurl, setmyurl] = useState("");
@@ -118,10 +105,8 @@ export default function Playground(): any {
             className="border border-primary col-md-11 float-md-start ms-md-3"
           />
           <img src={myurl} alt="Image preview" />
-          <FileDialog fileCallback={mycallback} />
+          <FilePicker fileCallback={mycallback}/>
           <p>hi</p>
-          <Button label={"ha"} onClick={undefined} />
-          <Button label={"ha"} onClick={undefined} />
           <Button label={"ha"} onClick={undefined} />
         </ContentCol>
         <footer className="footer">
