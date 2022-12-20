@@ -15,7 +15,7 @@ const FilePicker = ({ fileCallback }: IFilePicker): JSX.Element => {
   return (
     <div className="mb-3">
       <label htmlFor="formFile" className="form-label">
-        Default file input example
+        Click Below to Upload Image:
       </label>
       <input
         className="form-control"

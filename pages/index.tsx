@@ -5,6 +5,7 @@ import { FilePicker } from "../components/FilePicker";
 // import { Valid } from "../components/Validation";
 // import { List, ListItem } from "../components/List";
 import { MainGrid, SideCol, ContentCol } from "../components/LayoutA";
+import { Tabs, TabItem } from "../components/Tabs";
 // import NavDropDownItem from '../components/NavBar/NavDropDownItem'
 // import Alert from "../components/Alert";
 import { Card } from "../components/Card";
@@ -12,7 +13,6 @@ import { Button } from "../components/Button";
 import { useRef, useState } from "react";
 // import styles from '../styles/Home.module.css'
 import * as tf from "@tensorflow/tfjs";
-
 
 export default function Playground(): any {
   const [myurl, setmyurl] = useState("");
@@ -99,15 +99,22 @@ export default function Playground(): any {
           <Card />
         </SideCol>
         <ContentCol>
-          <canvas
-            ref={mycanv}
-            id="myCanvas"
-            className="border border-primary col-md-11 float-md-start ms-md-3"
-          />
-          <img src={myurl} alt="Image preview" />
-          <FilePicker fileCallback={mycallback}/>
+          <Tabs>
+            <TabItem first={true} label="Input">
+              <img src={myurl} alt="Image preview" />
+            </TabItem>
+            <TabItem label="Output">
+              <canvas
+                ref={mycanv}
+                id="myCanvas"
+                className="border border-primary col-md-11 float-md-start ms-md-3"
+              />
+            </TabItem>
+          </Tabs>
+
+          <FilePicker fileCallback={mycallback} />
           <p>hi</p>
-          <Button label={"ha"} onClick={undefined} />
+          <Button label={"Do nothing button"} onClick={undefined} />
         </ContentCol>
         <footer className="footer">
           <a

@@ -138,6 +138,15 @@ const NavSearch = (): JSX.Element => {
     </form>
   );
 };
+/* Navbar END */
+
+// const TabBox = () => {
+//   return(
+//     <ul class="nav nav-tabs">
+//       <NavItem/>
+//     </ul>
+//   )
+// }
 
 export {
   NavBar,
